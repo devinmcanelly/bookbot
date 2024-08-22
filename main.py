@@ -25,13 +25,16 @@ def main():
         for c in count:
             sorted_char.append({"letter": c, "val": count[c]})
         print(sorted_char)
-        # loop over count and add each key into a new list. {"alpha": c, "count" = count of num}
-        # sort by num
+
+
+        
+    def printout(wc,chars):
+        print(f'frankenstein has {wc} words.\n {chars.sort(reverse=True, key=sort_on)}')
     
+    chars = letter_count(file_contents)
+    wc = word_count(file_contents)
     
-    letters = letter_count(file_contents)
-    words = word_count(file_contents)
-    sort_letters(letters)
+    printout(wc,chars)
     
 
 main()
