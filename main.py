@@ -33,21 +33,26 @@ def sort_letters(count):
     for c in count:
         sorted_char.append({"letter": c, "val": count[c]})
     
-    def sort_on(dict):
-        return dict["val"]
+    def sort_on(item):
+        return item["val"]
     
-    sort_by = sort_on(sorted_char["val"])
-    return sorted_char, sort_by
+    sorted_char.sort(reverse=True, key=sort_on)
+    return sorted_char
 
 
 def printout(wc,chars):
-    print(f'frankenstein has {wc} words.\n {chars}')
+    line = "================================================================================\n"
+
+    print(f'frankenstein has {wc} words.\n' + line )
+    print(f'{chars}')
 
 
 
 def main():
-    chars= letter_count(file_contents)
     wc = word_count(file_contents)
-    printout(wc,chars)
-    # chars.sort(reverse=True, key=sort_by)
+    chars = letter_count(file_contents)
+    chars_sorted = sort_letters(chars)
+    printout(wc,chars_sorted)
+
+
 main()
