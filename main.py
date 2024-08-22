@@ -15,13 +15,23 @@ def main():
         for l in lowered:
             if l.isalpha() == True:
                 count[l] = count.get(l, 0) + 1
+                # loop over count and add each key into a new list. {"alpha": c, "count" = count of num}
+                # sort by num
         return count
     
-    # def sort(count):
-    #     return count[]
+    def sort_letters(count):
+        sorted_char = []
+        
+        for c in count:
+            sorted_char.append({"letter": c, "val": count[c]})
+        print(sorted_char)
+        # loop over count and add each key into a new list. {"alpha": c, "count" = count of num}
+        # sort by num
+    
+    
     letters = letter_count(file_contents)
     words = word_count(file_contents)
-    print(letters)
+    sort_letters(letters)
     
 
 main()
