@@ -1,4 +1,12 @@
-with open("books/frankenstein.txt") as f:
+title = "kjv_bible"
+# TODO: Add a menu option to pick from the books in /books.
+# For now:
+    # books/kjv_bible
+    # books/Romeo.txt
+    # books/frankenstein.txt
+
+
+with open(f"books/{title}.txt") as f:
         file_contents = f.read() ## Open book and load it into a variable.
 
 def letter_count(file_contents):
@@ -14,10 +22,10 @@ def letter_count(file_contents):
     sorted = []
     for c in count:
         sorted.append({"letter": c, "val": count[c]})
-    
+
     def sort_on(item):
         return item["val"]
-    
+
     sorted.sort(reverse=True, key=sort_on)
     return sorted, len(lowered.split())
 
@@ -25,7 +33,7 @@ def letter_count(file_contents):
 def printout(wc,chars):
     line = "================================================================================\n"
     short_line = "==============="
-    print(line + f'frankenstein has {wc} words.\n' + short_line + short_line )
+    print(line + f'{title} has {wc} words.\n' + short_line + short_line )
     for c in chars:
         print(f'{c["letter"]} was used {c["val"]} times')
         print(short_line)
